@@ -85,13 +85,22 @@ The `dir_sorter_config.json` file contains all settings. Here are the available 
 
 ```json
 {
-  "Target_Dir": "C:/Users/YourName/Downloads",
-  "Sorted_Dir": "C:/Users/YourName/Documents/sorted",
+  "Target_Dir": "/path/to/your/target/directory",
+  "Sorted_Dir": "/path/to/your/sorted/directory",
+  "_comment_sort_type": "Sort_Type options: \"File-Extension\" (sort by file extension) or \"Date-Created\" (sort by creation date).",
   "Sort_Type": "File-Extension",
+  "_comment_sort_mode": "Sort_Mode options: \"Move\" (moves files to sorted directory) or \"Copy\" (copies files, leaving originals in place).",
   "Sort_Mode": "Move",
-  "Delete_Empty_Dirs": true,
-  "Ignore_Names": ["readme", "important"],
-  "Ignore_Types": ["pdf", "tmp"],
+  "_comment_delete_empty_dirs": "Delete_Empty_Dirs: true to remove empty directories after sorting, false to keep them. Only works when Sort_Mode is \"Move\" (not \"Copy\").",
+  "Delete_Empty_Dirs": false,
+  "_comment_ignore_names": "Ignore_Names entries must list base filenames without extensions (e.g. \"report\" to ignore report.txt).",
+  "Ignore_Names": [
+    "readme"
+  ],
+  "_comment_ignore_types": "Ignore_Types entries must list extensions without dots (e.g. \"txt\").",
+  "Ignore_Types": [
+    "tmp"
+  ],
   "Lock": "",
   "Lock_PID": ""
 }

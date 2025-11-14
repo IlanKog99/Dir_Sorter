@@ -29,8 +29,17 @@ A lightweight file organization tool that automatically sorts files from a targe
 
 1. **Download or clone the project** to a convenient location on your system
 2. **Ensure Python 3 is installed** and accessible from your command line
-3. **Create or download the configuration file** (`dir_sorter_config.json`) in the project directory
+3. **Create your configuration file** by copying the example:
+   ```bash
+   # Windows
+   copy dir_sorter_config.json.example dir_sorter_config.json
+   
+   # Linux/WSL
+   cp dir_sorter_config.json.example dir_sorter_config.json
+   ```
 4. **Configure the paths** in `dir_sorter_config.json` (see Configuration section below)
+
+**Note:** The `dir_sorter_config.json` file is in `.gitignore` to protect your personal paths. Only the example template (`dir_sorter_config.json.example`) is tracked in the repository.
 
 ### Quick Setup
 

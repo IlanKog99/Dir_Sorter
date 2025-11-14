@@ -318,7 +318,7 @@ def configure_interactively(path: Path) -> None:
                 print("Options: true/false, yes/no, or 1/0.")
             new_value = input(f"New value for {field}: ").strip()
             if field in {"Sort_Type", "Sort_Mode"}:
-                new_value = new_value.title() # capitalize the first letter to fit with the verification later
+                new_value = new_value.title().replace(" ", "-")  # capitalize and replace spaces with dashes
             if field == "Delete_Empty_Dirs":
                 new_value_lower = new_value.lower()
                 if new_value_lower in {"true", "yes", "1", "y"}:
@@ -328,10 +328,13 @@ def configure_interactively(path: Path) -> None:
                 else:
                     print(f"Invalid value '{new_value}'. Setting to False.")
                     data[field] = False
+                    input("Press Enter to continue.")
             elif field in {"Ignore_Names", "Ignore_Types"}:
                 data[field] = [item.strip() for item in new_value.split(",") if item.strip()]
             else:
                 data[field] = new_value
+            
+            system("cls")  # Clear screen after editing before showing menu again
 
         if validate_config(data, abort_on_error=False) is None:
             print("Config not saved: fix the issues above.")
